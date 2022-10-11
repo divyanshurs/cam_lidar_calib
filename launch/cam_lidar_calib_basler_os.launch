@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
 
-  <param name ="/use_sim_time" value="false"/>
+  <param name ="/use_sim_time" value="true"/>
   <node  pkg="cam_lidar_calib" name="cam_lidar_calib_nerian_basler_os" type="cam_lidar_calib_node" output="screen">
   	<param name = "dx" type="double" value="0.0615"/>
   	<param name = "dy" type="double" value="0.0615"/>
