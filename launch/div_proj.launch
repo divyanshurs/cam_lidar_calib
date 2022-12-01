@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+  <param name ="/use_sim_time" value="true"/>
+
+  <param name = "result_file" type="string" value="$(find cam_lidar_calib)/result/div_out.txt"/>
+
+  <param name= "project_only_plane" type="bool" value="false"/>
+
+  <param name = "camera_in_topic" type="string" value="/port_1/camera/image_raw"/>
+  <param name = "lidar_in_topic" type="string" value="/lidar_0/m1600/pcl2"/>
+  <param name = "camera_name" type="string" value="basler"/>
+  
+  <param name = "dist_cut_off" type="int" value="10"/>
+
+  <param name = "cam_config_file_path" type="string" value="$(find cam_lidar_calib)/config/new_cali.yaml" />
+
+  <node  pkg="cam_lidar_calib" name="cam_lidar_proj_basler" type="cam_lidar_proj_node" output="screen">
+  </node>
+</launch>

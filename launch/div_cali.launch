@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+
+  <param name ="/use_sim_time" value="true"/>
+
+
+  <node  pkg="cam_lidar_calib" name="cam_lidar_calib_basler" type="cam_lidar_calib_node_div" output="screen">
+  <param name ="/use_sim_time" value="true"/>
+
+  <param name = "dx" type="double" value="0.55"/>
+  <param name = "dy" type="double" value="0.55"/>
+
+  <!-- <param name = "checkerboard_rows" type = "int" value = "8" /> -->
+  <param name = "checkerboard_rows" type = "int" value = "8" />
+  <param name = "checkerboard_cols" type = "int" value = "6" />
+
+  <param name = "result_file" type="string" value="$(find cam_lidar_calib)/result/div_out.txt"/>
+  <param name = "result_rpy_file" type="string" value="$(find cam_lidar_calib)/result/div_out_rpy.txt"/>
+  <param name = "initializations_file" type="string" value="$(find cam_lidar_calib)/result/try.txt"/>
+
+  <param name = "min_points_on_plane" type="int" value="100"/>
+  <param name = "no_of_initializations" type="int" value="10"/>
+  <param name = "num_views" type="int" value="10"/>
+
+  <param name = "camera_in_topic" type="string" value="/port_1/camera/image_raw"/>
+  <param name = "lidar_in_topic" type="string" value="/lidar_0/m1600/pcl2"/>
+
+  <param name = "cam_config_file_path" type="string" value="$(find cam_lidar_calib)/config/new_cali.yaml" />
+	<param name="x_min" value="0.75"/>
+    	<param name="x_max" value="3"/>
+    	<param name="y_min" value="-1"/>
+    	<param name="y_max" value="1"/>
+    	<param name="z_min" value="-1"/>
+    	<param name="z_max" value="1"/>
+    	<param name="ransac_threshold" value="0.05"/>
+  </node>
+</launch>
